@@ -3,7 +3,11 @@
         <i class="feather icon-align-left"></i>
     </button>
 
+    @if(\Illuminate\Support\Facades\Session::get('role') === 'admin')
     <h2 class="c-navbar__title">My Dashboard</h2>
+    @else
+    <h2 class="c-navbar__title">Shuffled Word!</h2>
+    @endif
 
 {{--    <div class="c-dropdown dropdown u-mr-small">--}}
 {{--        <div class="c-notification dropdown-toggle" id="dropdownMenuToggle1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">--}}
@@ -114,7 +118,7 @@
 {{--            </a>--}}
 {{--        </div>--}}
 {{--    </div>--}}
-
+    @if(\Illuminate\Support\Facades\Session::get('role') === 'admin')
     <div class="c-dropdown dropdown">
         <div class="c-avatar c-avatar--xsmall dropdown-toggle" id="dropdownMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
             <img class="c-avatar__img" src="http://via.placeholder.com/72" alt="Adam Sandler">
@@ -124,4 +128,5 @@
             <a class="c-dropdown__item dropdown-item" href="{{ route('logout') }}">Log out</a>
         </div>
     </div>
+    @endif
 </header>

@@ -1,23 +1,20 @@
 <div class="o-page__sidebar js-page-sidebar">
     <aside class="c-sidebar">
-        <div class="c-sidebar__brand">
-            <a href="#"><img src="{{ asset('assets/img/fidelia-logo-no-background.png') }}" alt="Neat" style="margin-top: 20px;"></a>
-        </div>
 
         <!-- Scrollable -->
-        <div class="c-sidebar__body">
-            <span class="c-sidebar__title">Dashboards</span>
-            <ul class="c-sidebar__list">
-                <li>
-                    <a class="c-sidebar__link is-active" href="dashboard01.html">
-                        <i class="c-sidebar__icon feather icon-home"></i>Summary
-                    </a>
-                </li>
-                <li>
-                    <a class="c-sidebar__link" href="pricing.html">
-                        <i class="c-sidebar__icon feather icon-tag"></i>Point of Sales
-                    </a>
-                </li>
+{{--        <div class="c-sidebar__body">--}}
+{{--            <span class="c-sidebar__title">Dashboards</span>--}}
+{{--            <ul class="c-sidebar__list">--}}
+{{--                <li>--}}
+{{--                    <a class="c-sidebar__link is-active" href="dashboard01.html">--}}
+{{--                        <i class="c-sidebar__icon feather icon-home"></i>Summary--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a class="c-sidebar__link" href="pricing.html">--}}
+{{--                        <i class="c-sidebar__icon feather icon-tag"></i>Point of Sales--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 {{--                <li>--}}
 {{--                    <a class="c-sidebar__link" href="dashboard02.html">--}}
 {{--                        <i class="c-sidebar__icon feather icon-bar-chart-2"></i>Dashboard 2--}}
@@ -28,25 +25,25 @@
 {{--                        <i class="c-sidebar__icon feather icon-pie-chart"></i>Dashboard 3--}}
 {{--                    </a>--}}
 {{--                </li>--}}
-            </ul>
+{{--            </ul>--}}
 
-            <span class="c-sidebar__title">General</span>
-            <ul class="c-sidebar__list">
-                <li>
-                    <a class="c-sidebar__link" href="user-profile.html">
-                        <i class="c-sidebar__icon feather icon-user"></i>User
-                    </a>
-                </li>
-                <li>
-                    <a class="c-sidebar__link" href="invoice.html">
-                        <i class="c-sidebar__icon feather icon-file-text"></i>Stock
-                    </a>
-                </li>
-                <li>
-                    <a class="c-sidebar__link" href="https://zawiastudio.com/neat/docs/">
-                        <i class="c-sidebar__icon feather icon-book"></i>Service
-                    </a>
-                </li>
+{{--            <span class="c-sidebar__title">General</span>--}}
+{{--            <ul class="c-sidebar__list">--}}
+{{--                <li>--}}
+{{--                    <a class="c-sidebar__link" href="user-profile.html">--}}
+{{--                        <i class="c-sidebar__icon feather icon-user"></i>User--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a class="c-sidebar__link" href="invoice.html">--}}
+{{--                        <i class="c-sidebar__icon feather icon-file-text"></i>Stock--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li>--}}
+{{--                    <a class="c-sidebar__link" href="https://zawiastudio.com/neat/docs/">--}}
+{{--                        <i class="c-sidebar__icon feather icon-book"></i>Service--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 {{--                <li>--}}
 {{--                    <a class="c-sidebar__link" href="pipeline.html">--}}
 {{--                        <i class="c-sidebar__icon feather icon-move"></i>Pipeline--}}
@@ -102,7 +99,7 @@
 {{--                    </div>--}}
 
 {{--                </li>--}}
-            </ul>
+{{--            </ul>--}}
 
 {{--            <span class="c-sidebar__title">Neat</span>--}}
 {{--            <ul class="c-sidebar__list">--}}
@@ -117,7 +114,7 @@
 {{--                    </a>--}}
 {{--                </li>--}}
 {{--            </ul>--}}
-        </div>
+{{--        </div>--}}
 
 
         <a class="c-sidebar__footer" href="https://www.linkedin.com/in/imanuel-ronaldo/">

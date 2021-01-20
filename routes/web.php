@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BoardController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
-
 Route::group(['prefix' => '/'], function (){
+
+    Route::get('/', [AuthController::class, 'register_index'])->name('user_register_page');
+    Route::post('register',[AuthController::class, 'register'])->name('user_register_action');
+    Route::get('/board',[BoardController::class, 'index'])->name('user_board_page');
+
+
     Route::group(['prefix' => 'admin'], function (){
-        Route::get('login',[AuthController::class, 'login_index'])->name('admin_login_page');
-        Route::post('auth',[AuthController::class, 'login'])->name('admin_auth_check');
+        Route::get('/',[AuthController::class, 'login_index'])->name('admin_login_page');
+        Route::post('login',[AuthController::class, 'login'])->name('admin_auth_check');
+
+        Route::get('/dashboard',[DashboardController::class,'index'])->name('admin_dashboard_page');
     });
 });

@@ -26,19 +26,14 @@
 {{--          <span class="c-icon c-icon--large u-mb-small">--}}
 {{--           --}}
 {{--          </span>--}}
-            <h4 class="u-mb-medium">Welcome Back :)</h4>
-            <form method="POST" action="#">
+            <h3 class="u-mb-medium">Insert Your Name</h3>
+            <h6 class="u-mb-small">The game will start after you enter your name below:</h6>
+            <form method="POST" action="{{ route('user_register_action') }}">
                 @csrf
                 <div class="c-field">
-                    <label class="c-field__label">Email Address</label>
-                    <input class="c-input u-mb-small" type="email" placeholder="e.g. imanuel@ronaldo.com" required name="email">
+                    <label class="c-field__label">Name</label>
+                    <input class="c-input u-mb-small" type="name" placeholder="e.g. imanuel" required name="name">
                 </div>
-
-                <div class="c-field">
-                    <label class="c-field__label">Password</label>
-                    <input class="c-input u-mb-small" type="password" placeholder="Numbers, Pharagraphs Only" required name="password">
-                </div>
-
                 <button class="c-btn c-btn--fullwidth c-btn--info" type="submit">Login</button>
             </form>
         </div>

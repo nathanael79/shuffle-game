@@ -14,13 +14,40 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function register(){
+    public function register_index(){
+        return view('auth.register');
+    }
 
+    public function register(Request $request){
+        $data = $request->only(array_keys($this->getRegisterParams()));
+        $validator = Validator::make($data, $this->getRegisterParams());
+
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }else{
+            $user = User::create([
+                'name' => $data['name'],
+                'role' => User::USER
+            ]);
+            if($user){
+                $user->game()->create([
+                    'user_id' => $user->id,
+                    'total_point' => 0
+                ]);
+
+                Session::put('user', $user->name);
+                Session::put('role', $user->role);
+
+                return redirect()->route('user_board_page');
+            }else{
+                return redirect()->back();
+            }
+        }
     }
 
     public function login(Request $request){
-        $data = $request->only(array_keys($this->getParams()));
-        $validator = Validator::make($data, $this->getParams());
+        $data = $request->only(array_keys($this->getLoginParams()));
+        $validator = Validator::make($data, $this->getLoginParams());
 
         if($validator->fails()){
             return redirect()->back()->withErrors($validator->errors());
@@ -29,7 +56,7 @@ class AuthController extends Controller
 
             if($activeUser && Hash::check($data['password'], $activeUser->password)){
                 Session::put('email', $data['email']);
-                Session::put('role', $activeUser->role()->first()->name);
+                Session::put('role', $activeUser->role);
 //                return redirect()->route('dashboard');
             }else{
                 return redirect()->back();
@@ -37,10 +64,16 @@ class AuthController extends Controller
         }
     }
 
-    private function getParams(){
+    private function getLoginParams(){
         return [
             'email' => 'required',
             'password' => 'required'
+        ];
+    }
+
+    private function getRegisterParams(){
+        return [
+            'name' => 'required'
         ];
     }
 }
