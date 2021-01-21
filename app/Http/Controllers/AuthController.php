@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Word;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -37,8 +38,10 @@ class AuthController extends Controller
 
                 Session::put('user', $user->name);
                 Session::put('role', $user->role);
-
-                return redirect()->route('user_board_page');
+                return view('board.index',[
+                    'data' => $this->getShuffledWord(),
+                    'point' => 0
+                ]);
             }else{
                 return redirect()->back();
             }
@@ -57,11 +60,25 @@ class AuthController extends Controller
             if($activeUser && Hash::check($data['password'], $activeUser->password)){
                 Session::put('email', $data['email']);
                 Session::put('role', $activeUser->role);
-//                return redirect()->route('dashboard');
+                return redirect()->route('admin_dashboard_page');
             }else{
                 return redirect()->back();
             }
         }
+    }
+
+    public function userLogout(){
+        $this->logout();
+        return redirect()->route('user_register_page');
+    }
+
+    public function adminLogout(){
+        $this->logout();
+        return redirect()->route('admin_login_page');
+    }
+
+    private function logout(){
+        Session::forget(['user','role']);
     }
 
     private function getLoginParams(){
@@ -74,6 +91,14 @@ class AuthController extends Controller
     private function getRegisterParams(){
         return [
             'name' => 'required'
+        ];
+    }
+
+    private function getShuffledWord(){
+        $initialWord =  Word::inRandomOrder()->first();
+        return [
+            'answer' => $initialWord,
+            'shuffledWord' => str_shuffle($initialWord->name)
         ];
     }
 }

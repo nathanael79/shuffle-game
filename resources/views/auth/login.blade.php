@@ -27,7 +27,7 @@
 {{--           --}}
 {{--          </span>--}}
             <h4 class="u-mb-medium">Welcome Back :)</h4>
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('admin_auth_check') }}" style="margin-bottom: 10px;">
                 @csrf
                 <div class="c-field">
                     <label class="c-field__label">Email Address</label>
@@ -41,6 +41,7 @@
 
                 <button class="c-btn c-btn--fullwidth c-btn--info" type="submit">Login</button>
             </form>
+            <a class="c-btn c-btn--fullwidth c-btn--success" href="{{ route('user_register_page') }}">Let's Play</a>
         </div>
     </div>
 </div>

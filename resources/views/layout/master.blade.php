@@ -6,6 +6,7 @@
     <title>Shuffle Game</title>
     <meta name="description" content="Neat">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -16,6 +17,7 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets/css/neat.min.css?v=1.0') }}">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
 </head>
 <body>
 
@@ -33,6 +35,15 @@
 
 <!-- Main JavaScript -->
 <script src="{{ asset('assets/js/neat.min.js?v=1.0') }}"></script>
+<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 @yield('js')
 </body>
 </html>

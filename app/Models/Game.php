@@ -15,6 +15,10 @@ class Game extends Model
         'total_point'
     ];
 
+    public function user(){
+        return $this->hasOne(User::class, 'id','user_id');
+    }
+
     public function result(){
         return $this->hasMany(Result::class, 'game_id','id');
     }
